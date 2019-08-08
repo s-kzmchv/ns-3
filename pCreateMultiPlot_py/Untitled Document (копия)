@@ -1,0 +1,2 @@
+python3 pCreateMultiPlot.py "group1.csv|LoRaWAN and [3]|v-" "group2.csv|Proposed method (SF7 and SF8)|o-" "group3.csv|Proposed method (SF7-SF9)|s-" "group6.csv|Proposed method (SF7-SF12)|+-" --grid --xticks --ylabel 'Packet delivery ratio' --xlabel 'Number of end devices'
+

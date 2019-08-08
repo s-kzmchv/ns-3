@@ -1,0 +1,2 @@
+python3 pCreateMultiPlot.py "group1.csv|No grouping|v-" "group2.csv|Two groups|o-" "group3.csv|Three groups|s-" "group6.csv|Six groups|+-" --grid --xticks --ylabel 'Packet delivery ratio' --xlabel 'Number of end devices'
+
