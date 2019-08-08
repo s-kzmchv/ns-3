@@ -739,7 +739,7 @@ LoRaWANExampleTracing::InstallApplications ()
 
 
   //Оптимизация
-  bool optimisation = true;
+  bool optimisation = false;
   if(optimisation) {
       int kmax = 0;//sf12
       int kmin = 5;//sf7
