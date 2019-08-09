@@ -738,9 +738,9 @@ LoRaWANExampleTracing::InstallApplications ()
     }
 
 
-  //Оптимизация
-  bool optimisation = false;
-  if(optimisation) {
+  //Оптимизация 1
+  bool optimisation1 = false;
+  if(optimisation1) {
       int kmax = 0;//sf12
       int kmin = 5;//sf7
 
@@ -836,6 +836,122 @@ LoRaWANExampleTracing::InstallApplications ()
       std::cout  << std::endl;
 
   }
+
+
+    //Оптимизация 2
+    bool optimisation2 = true;
+    if(optimisation2 && !optimisation1 ) {
+        int kmax = 0;//sf12
+        int kmin = 5;//sf7
+        int N = 0;
+        std::vector<double> t_23ms = {1.48275, 0.8233, 0.37069, 0.20582, 0.11315, 0.0617};
+        std::vector<int> numsOfEndDevicesMustBe = {0, 0, 0, 0, 0, 0};
+
+        std::vector<int> numsOfEndDevicesExist = {0, 0, 0, 0, 0, 0};
+        for (ApplicationContainer::Iterator aci = endDeviceApp.Begin(); aci != endDeviceApp.End(); ++aci) {
+            Ptr <Application> app = *aci;
+            UintegerValue dataRateIndex = 0;
+            app->GetAttribute("DataRateIndex", dataRateIndex);
+            numsOfEndDevicesExist[dataRateIndex.Get()] += 1;
+            N++;
+        }
+        std::cout << "numsOfEndDevicesExist: " << std::endl;
+        for (auto i : numsOfEndDevicesExist) {
+            std::cout << i << " ";
+        }
+        std::cout << "N =  "<< N << std::endl;
+        std::cout  << std::endl;
+
+//        int perenos = 0;
+        bool flag = true;
+        for (int numOfSF = 5; numOfSF >= 0; numOfSF--) {
+            if (flag) {
+                kmin = numOfSF;
+            }
+            double numerator = 1;
+            for (int j = kmax; j <= kmin; j++) {
+                if (j != numOfSF)
+                    numerator *= t_23ms[j];
+            }
+            double denominator = 0;
+            for (int j = kmax; j <= kmin; j++) {
+                double tmp = 1;
+                for (int l = kmax; l <= kmin; l++) {
+                    if (j != l)
+                        tmp *= t_23ms[l];
+                }
+                denominator += tmp;
+            }
+//            std::cout << "SF" << 12 - numOfSF << " num: " << numsOfEndDevicesExist[numOfSF] << std::endl;
+//            std::cout << "!!!!! " << numerator << " " << denominator << " " << N << std::endl;
+            int optNumOfDeviceSF = round(numerator / denominator * N);
+            if (optNumOfDeviceSF > numsOfEndDevicesExist[numOfSF] && flag){
+                numsOfEndDevicesMustBe[numOfSF] = numsOfEndDevicesExist[numOfSF];
+                N -= numsOfEndDevicesExist[numOfSF];
+            }
+            else{
+                numsOfEndDevicesMustBe[numOfSF] = optNumOfDeviceSF;
+                flag = false;
+            }
+//            numsOfEndDevicesMustBe[numOfSF] = round(numerator / denominator * (numsOfEndDevicesExist[numOfSF] + perenos));
+//            numsOfEndDevicesMustBe[numOfSF] = round(numerator / denominator * (N));
+//            perenos = numsOfEndDevicesExist[numOfSF] + perenos - numsOfEndDevicesMustBe[numOfSF];
+        }
+//        std::cout << "SF" << 12 - 0 << " num: " << numsOfEndDevicesExist[0] + perenos << std::endl;
+//        numsOfEndDevicesMustBe[0] = numsOfEndDevicesExist[0] + perenos;
+//        std::cout << "numsOfEndDevicesMustBe: " << std::endl;
+        for (auto i : numsOfEndDevicesMustBe) {
+            std::cout << i << " ";
+        }
+        std::cout  << std::endl;
+
+        int i = 5;
+        while (i != -1) {
+            if (numsOfEndDevicesExist[i] == numsOfEndDevicesMustBe[i]) {
+                i--;
+                continue;
+            }
+            int max = 0;
+            Ptr <Application> appFound;
+            for (ApplicationContainer::Iterator aci = endDeviceApp.Begin(); aci != endDeviceApp.End(); ++aci) {
+                Ptr <Application> app = *aci;
+                UintegerValue dataRateIndex = 0;
+                app->GetAttribute("DataRateIndex", dataRateIndex);
+
+                if (int(dataRateIndex.Get()) != i) {
+                    continue;
+                }
+
+                const Ptr <Node> endDeviceNode = app->GetNode();
+                Ptr <MobilityModel> endDeviceMobility = endDeviceNode->GetObject<MobilityModel>();
+                Vector endDevicePos = endDeviceMobility->GetPosition();
+
+                auto tmp = std::sqrt(endDevicePos.x * endDevicePos.x + endDevicePos.y * endDevicePos.y);
+                if (tmp > max) {
+                    max = tmp;
+                    appFound = app;
+                }
+
+            }
+            appFound->SetAttribute("DataRateIndex", UintegerValue(i-1));
+            numsOfEndDevicesExist[i]--;
+            numsOfEndDevicesExist[i-1]++;
+        }
+        std::vector<int> numsOfEndDevicesExistTMP = {0, 0, 0, 0, 0, 0};
+        for (ApplicationContainer::Iterator aci = endDeviceApp.Begin (); aci != endDeviceApp.End (); ++aci)
+        {
+            Ptr<Application> app = *aci;
+            UintegerValue dataRateIndex = 0;
+            app->GetAttribute("DataRateIndex", dataRateIndex);
+            numsOfEndDevicesExistTMP[dataRateIndex.Get()] += 1;
+        }
+        std::cout << "now: " << std::endl;
+        for (auto i : numsOfEndDevicesExistTMP) {
+            std::cout << i << " ";
+        }
+        std::cout  << std::endl;
+
+    }
 
 }
 
