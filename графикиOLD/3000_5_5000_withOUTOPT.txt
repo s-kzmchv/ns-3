@@ -1,0 +1,436 @@
+/usr/bin/python3.7 /home/developer/Project/pyProj/randomSF1000ED.py
+1
+Waf: Entering directory `/home/developer/Project/build'
+[ 871/1812] Compiling scratch/lorawan-example-tracing.cc
+[1799/1812] Linking build/scratch/lorawan-example-tracing
+Waf: Leaving directory `/home/developer/Project/build'
+Build commands will be stored in build/compile_commands.json
+'build' finished successfully (24.344s)
+LoRaWANEndDeviceApplication::GetTypeId: ns3::UniformRandomVariable[Min=0|Max=6]
+
+Simulation settings:
+	randomSeed = 71879
+	nEndDevices = 5000
+	nGateways = 1
+	discRadius = 3000
+	totalTime = 300
+	nRuns = 1
+	usPacketSize = 23
+	usMaxBytes = 0
+	usDataPeriod = 300
+	usUnconfirmedDataNbRep = 1
+	usConfirmedData = 0
+	dsPacketSize = 21
+	dsDataGenerate = 0
+	dsDataExpMean = 3000
+	dsConfirmedData = 0
+	verbose = 0
+	stdcout = 0
+	tracePhyTransmissions = 1
+	tracePhyStates = 1
+	traceMacPackets = 1
+	traceMacStates = 1
+	traceEdMsgs = 1
+	traceNsDsMsgs = 1
+	traceMisc = 0
+	outputFileNamePrefix = tmp/myTest
+	run = 0
+	seed = 71879
+	phyTransmissionTraceCSVFileName = tmp/myTest-1565339755-0-trace-phy-tx.csv
+	phyStateTraceCSVFileName = tmp/myTest-1565339755-0-trace-phy-state.csv
+	macPacketTraceCSVFileName = tmp/myTest-1565339755-0-trace-mac-packets.csv
+	macStateTraceCSVFileName = tmp/myTest-1565339755-0-trace-mac-state.csv
+	edMsgTraceCSVFileName = tmp/myTest-1565339755-0-trace-ed-msgs.csv
+	nsDSMsgTraceCSVFileName = tmp/myTest-1565339755-0-trace-ns-dsmsgs.csv
+	miscTraceCSVFileName = tmp/myTest-1565339755-0-trace-misc.csv
+	nodesCSVFileName = tmp/myTest-1565339755-0-nodes.csv
+	Data rate assignment method index: 0, PER limit = 0.01, PER Packet size = 21 bytes
+Creating 1 LoRaWAN gateway(s).
+Creating 5000 LoRaWAN class A end devices.
+My Starting simulation for 300 s ...
+Parsing phy tx csv file tmp/myTest-1565339755-0-trace-phy-tx.csv
+
+Simulation PHY delivery ratio: 2483/4998 = 49.679871948779514% (2515 undelivered).
+
+Delivery/drop numbers per data rate index:
+DR         Delivered    Undelivered              %
+2                275            641          30.02
+3                519            912          36.27
+4                545            434          55.67
+5               1144            528          68.42
+
+Number of dropped PHY transmissions at a specific data rate index for every drop reason:
+Drop reason | DR:                 0         1         2         3         4         5       Sum
+PHY_BUSY_RX(0)                    0         0       487       673       249       430      1839
+SINR_TOO_LOW(1)                   0         0        24        67        47         3       141
+PACKET_DESTROYED(3)               0         0       130       172       138        95       535
+
+Appending output per simulation to parse_phytx_trace_per_simulation.csv
+Appending output per end device to parse_phytx_trace_per_enddevice.csv
+------------------------------------------------------------------
+
+ -------------------------------------------------------------------------------------------------------
+
+
+SF12 = 0.0
+SF11 = 0.0
+SF10 = 917.0
+SF9 = 1432.0
+SF8 = 979.0
+SF7 = 1672.0
+probability for SF12 = 0.0000 (0/0) modeling
+probability for SF11 = 0.0000 (0/0) modeling
+probability for SF10 = 0.3002 (275/916) modeling
+probability for SF9 = 0.3627 (519/1431) modeling
+probability for SF8 = 0.5567 (545/979) modeling
+probability for SF7 = 0.6842 (1144/1672) modeling
+2
+Waf: Entering directory `/home/developer/Project/build'
+Waf: Leaving directory `/home/developer/Project/build'
+Build commands will be stored in build/compile_commands.json
+'build' finished successfully (7.522s)
+LoRaWANEndDeviceApplication::GetTypeId: ns3::UniformRandomVariable[Min=0|Max=6]
+
+Simulation settings:
+	randomSeed = 89608
+	nEndDevices = 5000
+	nGateways = 1
+	discRadius = 3000
+	totalTime = 300
+	nRuns = 1
+	usPacketSize = 23
+	usMaxBytes = 0
+	usDataPeriod = 300
+	usUnconfirmedDataNbRep = 1
+	usConfirmedData = 0
+	dsPacketSize = 21
+	dsDataGenerate = 0
+	dsDataExpMean = 3000
+	dsConfirmedData = 0
+	verbose = 0
+	stdcout = 0
+	tracePhyTransmissions = 1
+	tracePhyStates = 1
+	traceMacPackets = 1
+	traceMacStates = 1
+	traceEdMsgs = 1
+	traceNsDsMsgs = 1
+	traceMisc = 0
+	outputFileNamePrefix = tmp/myTest
+	run = 0
+	seed = 89608
+	phyTransmissionTraceCSVFileName = tmp/myTest-1565340110-0-trace-phy-tx.csv
+	phyStateTraceCSVFileName = tmp/myTest-1565340110-0-trace-phy-state.csv
+	macPacketTraceCSVFileName = tmp/myTest-1565340110-0-trace-mac-packets.csv
+	macStateTraceCSVFileName = tmp/myTest-1565340110-0-trace-mac-state.csv
+	edMsgTraceCSVFileName = tmp/myTest-1565340110-0-trace-ed-msgs.csv
+	nsDSMsgTraceCSVFileName = tmp/myTest-1565340110-0-trace-ns-dsmsgs.csv
+	miscTraceCSVFileName = tmp/myTest-1565340110-0-trace-misc.csv
+	nodesCSVFileName = tmp/myTest-1565340110-0-nodes.csv
+	Data rate assignment method index: 0, PER limit = 0.01, PER Packet size = 21 bytes
+Creating 1 LoRaWAN gateway(s).
+Creating 5000 LoRaWAN class A end devices.
+My Starting simulation for 300 s ...
+Parsing phy tx csv file tmp/myTest-1565340110-0-trace-phy-tx.csv
+
+Simulation PHY delivery ratio: 2462/4997 = 49.26956173704223% (2535 undelivered).
+
+Delivery/drop numbers per data rate index:
+DR         Delivered    Undelivered              %
+2                296            621          32.28
+3                508            923          35.50
+4                522            456          53.37
+5               1136            535          67.98
+
+Number of dropped PHY transmissions at a specific data rate index for every drop reason:
+Drop reason | DR:                 0         1         2         3         4         5       Sum
+PHY_BUSY_RX(0)                    0         0       462       687       265       430      1844
+SINR_TOO_LOW(1)                   0         0        31        50        48        10       139
+PACKET_DESTROYED(3)               0         0       128       186       143        95       552
+
+Appending output per simulation to parse_phytx_trace_per_simulation.csv
+Appending output per end device to parse_phytx_trace_per_enddevice.csv
+------------------------------------------------------------------
+
+ -------------------------------------------------------------------------------------------------------
+
+
+SF12 = 0.0
+SF11 = 0.0
+SF10 = 917.0
+SF9 = 1432.0
+SF8 = 979.0
+SF7 = 1672.0
+probability for SF12 = 0.0000 (0/0) modeling
+probability for SF11 = 0.0000 (0/0) modeling
+probability for SF10 = 0.3228 (296/917) modeling
+probability for SF9 = 0.3550 (508/1431) modeling
+probability for SF8 = 0.5337 (522/978) modeling
+probability for SF7 = 0.6798 (1136/1671) modeling
+3
+Waf: Entering directory `/home/developer/Project/build'
+Waf: Leaving directory `/home/developer/Project/build'
+Build commands will be stored in build/compile_commands.json
+'build' finished successfully (11.160s)
+LoRaWANEndDeviceApplication::GetTypeId: ns3::UniformRandomVariable[Min=0|Max=6]
+
+Simulation settings:
+	randomSeed = 92540
+	nEndDevices = 5000
+	nGateways = 1
+	discRadius = 3000
+	totalTime = 300
+	nRuns = 1
+	usPacketSize = 23
+	usMaxBytes = 0
+	usDataPeriod = 300
+	usUnconfirmedDataNbRep = 1
+	usConfirmedData = 0
+	dsPacketSize = 21
+	dsDataGenerate = 0
+	dsDataExpMean = 3000
+	dsConfirmedData = 0
+	verbose = 0
+	stdcout = 0
+	tracePhyTransmissions = 1
+	tracePhyStates = 1
+	traceMacPackets = 1
+	traceMacStates = 1
+	traceEdMsgs = 1
+	traceNsDsMsgs = 1
+	traceMisc = 0
+	outputFileNamePrefix = tmp/myTest
+	run = 0
+	seed = 92540
+	phyTransmissionTraceCSVFileName = tmp/myTest-1565340494-0-trace-phy-tx.csv
+	phyStateTraceCSVFileName = tmp/myTest-1565340494-0-trace-phy-state.csv
+	macPacketTraceCSVFileName = tmp/myTest-1565340494-0-trace-mac-packets.csv
+	macStateTraceCSVFileName = tmp/myTest-1565340494-0-trace-mac-state.csv
+	edMsgTraceCSVFileName = tmp/myTest-1565340494-0-trace-ed-msgs.csv
+	nsDSMsgTraceCSVFileName = tmp/myTest-1565340494-0-trace-ns-dsmsgs.csv
+	miscTraceCSVFileName = tmp/myTest-1565340494-0-trace-misc.csv
+	nodesCSVFileName = tmp/myTest-1565340494-0-nodes.csv
+	Data rate assignment method index: 0, PER limit = 0.01, PER Packet size = 21 bytes
+Creating 1 LoRaWAN gateway(s).
+Creating 5000 LoRaWAN class A end devices.
+My Starting simulation for 300 s ...
+Parsing phy tx csv file tmp/myTest-1565340494-0-trace-phy-tx.csv
+
+Simulation PHY delivery ratio: 2523/4996 = 50.5004003202562% (2473 undelivered).
+
+Delivery/drop numbers per data rate index:
+DR         Delivered    Undelivered              %
+2                300            615          32.79
+3                511            919          35.73
+4                551            428          56.28
+5               1161            511          69.44
+
+Number of dropped PHY transmissions at a specific data rate index for every drop reason:
+Drop reason | DR:                 0         1         2         3         4         5       Sum
+PHY_BUSY_RX(0)                    0         0       474       676       242       417      1809
+SINR_TOO_LOW(1)                   0         0        27        62        48         3       140
+PACKET_DESTROYED(3)               0         0       114       181       138        91       524
+
+Appending output per simulation to parse_phytx_trace_per_simulation.csv
+Appending output per end device to parse_phytx_trace_per_enddevice.csv
+------------------------------------------------------------------
+
+ -------------------------------------------------------------------------------------------------------
+
+
+SF12 = 0.0
+SF11 = 0.0
+SF10 = 917.0
+SF9 = 1432.0
+SF8 = 979.0
+SF7 = 1672.0
+probability for SF12 = 0.0000 (0/0) modeling
+probability for SF11 = 0.0000 (0/0) modeling
+probability for SF10 = 0.3279 (300/915) modeling
+probability for SF9 = 0.3573 (511/1430) modeling
+probability for SF8 = 0.5628 (551/979) modeling
+probability for SF7 = 0.6944 (1161/1672) modeling
+4
+Waf: Entering directory `/home/developer/Project/build'
+Waf: Leaving directory `/home/developer/Project/build'
+Build commands will be stored in build/compile_commands.json
+'build' finished successfully (6.948s)
+LoRaWANEndDeviceApplication::GetTypeId: ns3::UniformRandomVariable[Min=0|Max=6]
+
+Simulation settings:
+	randomSeed = 70698
+	nEndDevices = 5000
+	nGateways = 1
+	discRadius = 3000
+	totalTime = 300
+	nRuns = 1
+	usPacketSize = 23
+	usMaxBytes = 0
+	usDataPeriod = 300
+	usUnconfirmedDataNbRep = 1
+	usConfirmedData = 0
+	dsPacketSize = 21
+	dsDataGenerate = 0
+	dsDataExpMean = 3000
+	dsConfirmedData = 0
+	verbose = 0
+	stdcout = 0
+	tracePhyTransmissions = 1
+	tracePhyStates = 1
+	traceMacPackets = 1
+	traceMacStates = 1
+	traceEdMsgs = 1
+	traceNsDsMsgs = 1
+	traceMisc = 0
+	outputFileNamePrefix = tmp/myTest
+	run = 0
+	seed = 70698
+	phyTransmissionTraceCSVFileName = tmp/myTest-1565340842-0-trace-phy-tx.csv
+	phyStateTraceCSVFileName = tmp/myTest-1565340842-0-trace-phy-state.csv
+	macPacketTraceCSVFileName = tmp/myTest-1565340842-0-trace-mac-packets.csv
+	macStateTraceCSVFileName = tmp/myTest-1565340842-0-trace-mac-state.csv
+	edMsgTraceCSVFileName = tmp/myTest-1565340842-0-trace-ed-msgs.csv
+	nsDSMsgTraceCSVFileName = tmp/myTest-1565340842-0-trace-ns-dsmsgs.csv
+	miscTraceCSVFileName = tmp/myTest-1565340842-0-trace-misc.csv
+	nodesCSVFileName = tmp/myTest-1565340842-0-nodes.csv
+	Data rate assignment method index: 0, PER limit = 0.01, PER Packet size = 21 bytes
+Creating 1 LoRaWAN gateway(s).
+Creating 5000 LoRaWAN class A end devices.
+My Starting simulation for 300 s ...
+Parsing phy tx csv file tmp/myTest-1565340842-0-trace-phy-tx.csv
+
+Simulation PHY delivery ratio: 2456/4995 = 49.169169169169166% (2539 undelivered).
+
+Delivery/drop numbers per data rate index:
+DR         Delivered    Undelivered              %
+2                290            626          31.66
+3                493            937          34.48
+4                524            453          53.63
+5               1149            523          68.72
+
+Number of dropped PHY transmissions at a specific data rate index for every drop reason:
+Drop reason | DR:                 0         1         2         3         4         5       Sum
+PHY_BUSY_RX(0)                    0         0       475       674       252       421      1822
+SINR_TOO_LOW(1)                   0         0        30        66        54         6       156
+PACKET_DESTROYED(3)               0         0       121       197       147        96       561
+
+Appending output per simulation to parse_phytx_trace_per_simulation.csv
+Appending output per end device to parse_phytx_trace_per_enddevice.csv
+------------------------------------------------------------------
+
+ -------------------------------------------------------------------------------------------------------
+
+
+SF12 = 0.0
+SF11 = 0.0
+SF10 = 917.0
+SF9 = 1432.0
+SF8 = 979.0
+SF7 = 1672.0
+probability for SF12 = 0.0000 (0/0) modeling
+probability for SF11 = 0.0000 (0/0) modeling
+probability for SF10 = 0.3166 (290/916) modeling
+probability for SF9 = 0.3448 (493/1430) modeling
+probability for SF8 = 0.5363 (524/977) modeling
+probability for SF7 = 0.6872 (1149/1672) modeling
+5
+Waf: Entering directory `/home/developer/Project/build'
+Waf: Leaving directory `/home/developer/Project/build'
+Build commands will be stored in build/compile_commands.json
+'build' finished successfully (29.425s)
+LoRaWANEndDeviceApplication::GetTypeId: ns3::UniformRandomVariable[Min=0|Max=6]
+
+Simulation settings:
+	randomSeed = 34027
+	nEndDevices = 5000
+	nGateways = 1
+	discRadius = 3000
+	totalTime = 300
+	nRuns = 1
+	usPacketSize = 23
+	usMaxBytes = 0
+	usDataPeriod = 300
+	usUnconfirmedDataNbRep = 1
+	usConfirmedData = 0
+	dsPacketSize = 21
+	dsDataGenerate = 0
+	dsDataExpMean = 3000
+	dsConfirmedData = 0
+	verbose = 0
+	stdcout = 0
+	tracePhyTransmissions = 1
+	tracePhyStates = 1
+	traceMacPackets = 1
+	traceMacStates = 1
+	traceEdMsgs = 1
+	traceNsDsMsgs = 1
+	traceMisc = 0
+	outputFileNamePrefix = tmp/myTest
+	run = 0
+	seed = 34027
+	phyTransmissionTraceCSVFileName = tmp/myTest-1565341231-0-trace-phy-tx.csv
+	phyStateTraceCSVFileName = tmp/myTest-1565341231-0-trace-phy-state.csv
+	macPacketTraceCSVFileName = tmp/myTest-1565341231-0-trace-mac-packets.csv
+	macStateTraceCSVFileName = tmp/myTest-1565341231-0-trace-mac-state.csv
+	edMsgTraceCSVFileName = tmp/myTest-1565341231-0-trace-ed-msgs.csv
+	nsDSMsgTraceCSVFileName = tmp/myTest-1565341231-0-trace-ns-dsmsgs.csv
+	miscTraceCSVFileName = tmp/myTest-1565341231-0-trace-misc.csv
+	nodesCSVFileName = tmp/myTest-1565341231-0-nodes.csv
+	Data rate assignment method index: 0, PER limit = 0.01, PER Packet size = 21 bytes
+Creating 1 LoRaWAN gateway(s).
+Creating 5000 LoRaWAN class A end devices.
+My Starting simulation for 300 s ...
+Parsing phy tx csv file tmp/myTest-1565341231-0-trace-phy-tx.csv
+
+Simulation PHY delivery ratio: 2459/4996 = 49.21937550040032% (2537 undelivered).
+
+Delivery/drop numbers per data rate index:
+DR         Delivered    Undelivered              %
+2                294            621          32.13
+3                488            942          34.13
+4                535            444          54.65
+5               1142            530          68.30
+
+Number of dropped PHY transmissions at a specific data rate index for every drop reason:
+Drop reason | DR:                 0         1         2         3         4         5       Sum
+PHY_BUSY_RX(0)                    0         0       470       689       246       423      1828
+SINR_TOO_LOW(1)                   0         0        28        54        39         1       122
+PACKET_DESTROYED(3)               0         0       123       199       159       106       587
+
+Appending output per simulation to parse_phytx_trace_per_simulation.csv
+Appending output per end device to parse_phytx_trace_per_enddevice.csv
+------------------------------------------------------------------
+
+ -------------------------------------------------------------------------------------------------------
+
+
+SF12 = 0.0
+SF11 = 0.0
+SF10 = 917.0
+SF9 = 1432.0
+SF8 = 979.0
+SF7 = 1672.0
+probability for SF12 = 0.0000 (0/0) modeling
+probability for SF11 = 0.0000 (0/0) modeling
+probability for SF10 = 0.3213 (294/915) modeling
+probability for SF9 = 0.3413 (488/1430) modeling
+probability for SF8 = 0.5465 (535/979) modeling
+probability for SF7 = 0.6830 (1142/1672) modeling
+
+ ##############################################################################################################
+
+
+PDR = 0.49568 on discRadius 3000m
+
+res of modeling (prob):
+[0.6857199999999999, 0.5471999999999999, 0.35222, 0.31776, 0.0, 0.0]
+teor prob up bound:
+[0.7090177860434775, 0.6912552255095585, 0.3743936606050557, 0.322041207936849, 1.0, 1.0]
+teor prob low bound:
+[0.5027062209259946, 0.47783378679427063, 0.14017061310125362, 0.10371053960942482, 1.0, 1.0]
+
+Teor PDR low = 0.3208301922885383
+Teor PDR up = 0.5387320227406165
+
+
+Process finished with exit code 0
