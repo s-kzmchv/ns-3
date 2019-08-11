@@ -238,6 +238,11 @@ void LoRaWANEndDeviceApplication::CancelEvents ()
 }
 
 
+
+// The expected value for the mean of the values returned by an
+// exponentially distributed random variable is equal to mean.
+//    double value = myExponentialRandomVariable->GetValue ();
+
 // Private helpers
 void LoRaWANEndDeviceApplication::ScheduleNextTx ()
 {
@@ -245,7 +250,14 @@ void LoRaWANEndDeviceApplication::ScheduleNextTx ()
 
   if (m_maxBytes == 0 || m_totBytes < m_maxBytes)
     {
-      Time nextTime (Seconds (this->m_upstreamIATRandomVariable->GetValue ()));
+        double mean = 300;
+        double bound = 0.0;
+        Ptr<ExponentialRandomVariable> myExponentialRandomVariable = CreateObject<ExponentialRandomVariable> ();
+        myExponentialRandomVariable->SetAttribute ("Mean", DoubleValue (mean));
+        myExponentialRandomVariable->SetAttribute ("Bound", DoubleValue (bound));
+      Time nextTime (Seconds (myExponentialRandomVariable->GetValue ()));
+//      Time nextTime (Seconds (this->m_upstreamIATRandomVariable->GetValue ()));
+//      std::cout << nextTime << std::endl;
       NS_LOG_LOGIC (this << " nextTime = " << nextTime);
       m_txEvent = Simulator::Schedule (nextTime,
                                        &LoRaWANEndDeviceApplication::SendPacket, this);

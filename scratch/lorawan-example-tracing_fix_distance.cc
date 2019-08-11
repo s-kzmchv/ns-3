@@ -902,7 +902,7 @@ LoRaWANExampleTracing::CalculateDataRateIndexPER (Ptr<Application> endDeviceApp)
   Vector endDevicePos = endDeviceMobility->GetPosition ();
   double distance = CalculateDistance (endDeviceMobility->GetPosition (), posGw);
 
-  if (m_verbose) {
+  if (true) {
     std::cout << "CalculateDataRateIndexPER: node " << endDeviceNode->GetId () << "\tDRindex = " << (unsigned int)calculatedDataRateIndex
       << "\tSF=" << (unsigned int)LoRaWAN::m_supportedDataRates[calculatedDataRateIndex].spreadingFactor
       << "\tmaxRxPowerdBm = " << maxRxPowerdBm << "dBm\tsnrDb = " << snrDb << "dB" << "\tpos=(" << endDevicePos.x << "," << endDevicePos.y << ")\td=" << distance << "m\tPER=" << std::setprecision(5) << perForDR*100 << "%" << std::endl;

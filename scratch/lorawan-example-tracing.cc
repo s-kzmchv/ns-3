@@ -209,6 +209,11 @@ private:
 
 
 uint32_t seedSEMEN = 0;
+bool flagForApp = false;
+bool optimisation2 = false;
+std::vector<int> sfForDevicesSEMEN;
+
+
 
 int main (int argc, char *argv[])
 {
@@ -472,6 +477,11 @@ int main (int argc, char *argv[])
       simSettings << ", Fixed Data Rate Index = " << drCalcFixedDRIndex;
     simSettings  << std::endl;
 
+    if (drCalcFixedDRIndex == 1){
+        optimisation2 = true;
+    }
+
+
     // print settings to std cout
     std::cout << simSettings.str();
     // write settings to file:
@@ -535,11 +545,12 @@ LoRaWANExampleTracing::CaseRun (uint32_t nEndDevices, uint32_t nGateways, double
   m_nodesCSVFileName = nodesCSVFileName;
 
   CreateNodes ();
-  SeedManager::SetSeed (7531);
+//  SeedManager::SetSeed (7531);
   SetupMobility (); // important: setup mobility before creating devices
-  SeedManager::SetSeed (seedSEMEN);
+//  SeedManager::SetSeed (seedSEMEN);
   CreateDevices ();
   InstallApplications ();
+
 
   SetupTracing (tracePhyTransmissions, tracePhyStates, traceMacPackets, traceMacStates, traceEdMsgs, traceNsDsMsgs, traceMisc);
   OutputNodesToFile ();
@@ -720,127 +731,52 @@ LoRaWANExampleTracing::InstallApplications ()
       endDeviceApp.Add (app);
   }
 
-  // Assign data rate indexes to end device applications:
-  for (ApplicationContainer::Iterator aci = endDeviceApp.Begin (); aci != endDeviceApp.End (); ++aci)
-    {
-      Ptr<Application> app = *aci;
-      uint8_t dataRateIndex = 0;
+    // Assign data rate indexes to end device applications:
+    for (ApplicationContainer::Iterator aci = endDeviceApp.Begin(); aci != endDeviceApp.End(); ++aci) {
+        Ptr <Application> app = *aci;
+        uint8_t dataRateIndex = 0;
 
-      if (m_drCalcMethodIndex == LORAWAN_DR_CALC_METHOD_PER_INDEX) {
-          dataRateIndex = CalculateDataRateIndexPER(app); // assign data rates based on PER vs distance
-      }
-      else if (m_drCalcMethodIndex == LORAWAN_DR_CALC_METHOD_RANDOM_INDEX)
-        dataRateIndex = CalculateRandomDataRateIndex(app); // assign random data rates
-      else if (m_drCalcMethodIndex == LORAWAN_DR_CALC_METHOD_FIXED_INDEX) {
-          dataRateIndex = CalculateFixedDataRateIndex(app); // use a fixed data rate
-      }
-      app->SetAttribute ("DataRateIndex", UintegerValue(dataRateIndex));
+        if (m_drCalcMethodIndex == LORAWAN_DR_CALC_METHOD_PER_INDEX) {
+            dataRateIndex = CalculateDataRateIndexPER(app); // assign data rates based on PER vs distance
+        } else if (m_drCalcMethodIndex == LORAWAN_DR_CALC_METHOD_RANDOM_INDEX)
+            dataRateIndex = CalculateRandomDataRateIndex(app); // assign random data rates
+        else if (m_drCalcMethodIndex == LORAWAN_DR_CALC_METHOD_FIXED_INDEX) {
+            dataRateIndex = CalculateFixedDataRateIndex(app); // use a fixed data rate
+        }
+        app->SetAttribute("DataRateIndex", UintegerValue(dataRateIndex));
+
     }
 
 
-  //Оптимизация 1
-  bool optimisation1 = false;
-  if(optimisation1) {
-      int kmax = 0;//sf12
-      int kmin = 5;//sf7
-
-      std::vector<double> t_23ms = {1.48275, 0.8233, 0.37069, 0.20582, 0.11315, 0.0617};
-      std::vector<int> numsOfEndDevicesMustBe = {0, 0, 0, 0, 0, 0};
-
-      std::vector<int> numsOfEndDevicesExist = {0, 0, 0, 0, 0, 0};
-      for (ApplicationContainer::Iterator aci = endDeviceApp.Begin(); aci != endDeviceApp.End(); ++aci) {
-          Ptr <Application> app = *aci;
-          UintegerValue dataRateIndex = 0;
-          app->GetAttribute("DataRateIndex", dataRateIndex);
-          numsOfEndDevicesExist[dataRateIndex.Get()] += 1;
-      }
-      std::cout << "numsOfEndDevicesExist: " << std::endl;
-      for (auto i : numsOfEndDevicesExist) {
-          std::cout << i << " ";
-      }
-      std::cout  << std::endl;
-
-      int perenos = 0;
-      for (int numOfSF = 5; numOfSF > 0; numOfSF--) {
-          kmin = numOfSF;
-          double numerator = 1;
-          for (int j = kmax; j <= kmin; j++) {
-              if (j != numOfSF)
-                  numerator *= t_23ms[j];
-          }
-          double denominator = 0;
-          for (int j = kmax; j <= kmin; j++) {
-              double tmp = 1;
-              for (int l = kmax; l <= kmin; l++) {
-                  if (j != l)
-                      tmp *= t_23ms[l];
-              }
-              denominator += tmp;
-          }
-          std::cout << "SF" << 12 - numOfSF << " num: " << numsOfEndDevicesExist[numOfSF] + perenos << std::endl;
-          numsOfEndDevicesMustBe[numOfSF] = round(numerator / denominator * (numsOfEndDevicesExist[numOfSF] + perenos));
-          perenos = numsOfEndDevicesExist[numOfSF] + perenos - numsOfEndDevicesMustBe[numOfSF];
-      }
-      std::cout << "SF" << 12 - 0 << " num: " << numsOfEndDevicesExist[0] + perenos << std::endl;
-      numsOfEndDevicesMustBe[0] = numsOfEndDevicesExist[0] + perenos;
-      std::cout << "numsOfEndDevicesMustBe: " << std::endl;
-      for (auto i : numsOfEndDevicesMustBe) {
-          std::cout << i << " ";
-      }
-      std::cout  << std::endl;
-
-      int i = 5;
-      while (i != -1) {
-          if (numsOfEndDevicesExist[i] == numsOfEndDevicesMustBe[i]) {
-              i--;
-              continue;
-          }
-          int max = 0;
-          Ptr <Application> appFound;
-          for (ApplicationContainer::Iterator aci = endDeviceApp.Begin(); aci != endDeviceApp.End(); ++aci) {
-              Ptr <Application> app = *aci;
-              UintegerValue dataRateIndex = 0;
-              app->GetAttribute("DataRateIndex", dataRateIndex);
-
-              if (int(dataRateIndex.Get()) != i) {
-                  continue;
-              }
-
-              const Ptr <Node> endDeviceNode = app->GetNode();
-              Ptr <MobilityModel> endDeviceMobility = endDeviceNode->GetObject<MobilityModel>();
-              Vector endDevicePos = endDeviceMobility->GetPosition();
-
-              auto tmp = std::sqrt(endDevicePos.x * endDevicePos.x + endDevicePos.y * endDevicePos.y);
-              if (tmp > max) {
-                  max = tmp;
-                  appFound = app;
-              }
-
-          }
-          appFound->SetAttribute("DataRateIndex", UintegerValue(i-1));
-          numsOfEndDevicesExist[i]--;
-          numsOfEndDevicesExist[i-1]++;
-      }
-        std::vector<int> numsOfEndDevicesExistTMP = {0, 0, 0, 0, 0, 0};
-        for (ApplicationContainer::Iterator aci = endDeviceApp.Begin (); aci != endDeviceApp.End (); ++aci)
-        {
-           Ptr<Application> app = *aci;
-           UintegerValue dataRateIndex = 0;
-           app->GetAttribute("DataRateIndex", dataRateIndex);
-           numsOfEndDevicesExistTMP[dataRateIndex.Get()] += 1;
-        }
-      std::cout << "now: " << std::endl;
-      for (auto i : numsOfEndDevicesExistTMP) {
-            std::cout << i << " ";
-        }
-      std::cout  << std::endl;
-
-  }
-
-
+//  if (flagForApp){
+//      int iSf = 0;
+//      for (ApplicationContainer::Iterator aci = endDeviceApp.Begin (); aci != endDeviceApp.End (); ++aci)
+//      {
+//          Ptr<Application> app = *aci;
+//
+//          app->SetAttribute ("DataRateIndex", UintegerValue(sfForDevicesSEMEN[iSf]));
+//          iSf++;
+//      }
+//  } else {
+//
+//      // Assign data rate indexes to end device applications:
+//      for (ApplicationContainer::Iterator aci = endDeviceApp.Begin(); aci != endDeviceApp.End(); ++aci) {
+//          Ptr <Application> app = *aci;
+//          uint8_t dataRateIndex = 0;
+//
+//          if (m_drCalcMethodIndex == LORAWAN_DR_CALC_METHOD_PER_INDEX) {
+//              dataRateIndex = CalculateDataRateIndexPER(app); // assign data rates based on PER vs distance
+//          } else if (m_drCalcMethodIndex == LORAWAN_DR_CALC_METHOD_RANDOM_INDEX)
+//              dataRateIndex = CalculateRandomDataRateIndex(app); // assign random data rates
+//          else if (m_drCalcMethodIndex == LORAWAN_DR_CALC_METHOD_FIXED_INDEX) {
+//              dataRateIndex = CalculateFixedDataRateIndex(app); // use a fixed data rate
+//          }
+//          app->SetAttribute("DataRateIndex", UintegerValue(dataRateIndex));
+//
+//      }
+//  }
     //Оптимизация 2
-    bool optimisation2 = true;
-    if(optimisation2 && !optimisation1 ) {
+    if(optimisation2  && !flagForApp) {
         int kmax = 0;//sf12
         int kmin = 5;//sf7
         int N = 0;
@@ -883,8 +819,9 @@ LoRaWANExampleTracing::InstallApplications ()
                 denominator += tmp;
             }
 //            std::cout << "SF" << 12 - numOfSF << " num: " << numsOfEndDevicesExist[numOfSF] << std::endl;
-//            std::cout << "!!!!! " << numerator << " " << denominator << " " << N << std::endl;
+            std::cout << "!!!!! " << numerator << " " << denominator << " " << N << std::endl;
             int optNumOfDeviceSF = round(numerator / denominator * N);
+            std::cout << "!!!!! " << optNumOfDeviceSF << " " << numsOfEndDevicesExist[numOfSF] << std::endl;
             if (optNumOfDeviceSF > numsOfEndDevicesExist[numOfSF] && flag){
                 numsOfEndDevicesMustBe[numOfSF] = numsOfEndDevicesExist[numOfSF];
                 N -= numsOfEndDevicesExist[numOfSF];
@@ -900,10 +837,20 @@ LoRaWANExampleTracing::InstallApplications ()
 //        std::cout << "SF" << 12 - 0 << " num: " << numsOfEndDevicesExist[0] + perenos << std::endl;
 //        numsOfEndDevicesMustBe[0] = numsOfEndDevicesExist[0] + perenos;
 //        std::cout << "numsOfEndDevicesMustBe: " << std::endl;
+        int numofnustbe = 0;
+        for (auto i : numsOfEndDevicesMustBe) {
+            numofnustbe += i;
+            std::cout << i << " ";
+        }
+        std::cout <<numofnustbe << " &&&&&& " << N  << std::endl;
+
+        if (numofnustbe > N){
+            numsOfEndDevicesMustBe[0] = numsOfEndDevicesMustBe[0] - (numofnustbe - N);
+        }
+
         for (auto i : numsOfEndDevicesMustBe) {
             std::cout << i << " ";
         }
-        std::cout  << std::endl;
 
         int i = 5;
         while (i != -1) {
@@ -937,21 +884,33 @@ LoRaWANExampleTracing::InstallApplications ()
             numsOfEndDevicesExist[i]--;
             numsOfEndDevicesExist[i-1]++;
         }
-        std::vector<int> numsOfEndDevicesExistTMP = {0, 0, 0, 0, 0, 0};
-        for (ApplicationContainer::Iterator aci = endDeviceApp.Begin (); aci != endDeviceApp.End (); ++aci)
-        {
-            Ptr<Application> app = *aci;
-            UintegerValue dataRateIndex = 0;
-            app->GetAttribute("DataRateIndex", dataRateIndex);
-            numsOfEndDevicesExistTMP[dataRateIndex.Get()] += 1;
-        }
-        std::cout << "now: " << std::endl;
-        for (auto i : numsOfEndDevicesExistTMP) {
-            std::cout << i << " ";
-        }
-        std::cout  << std::endl;
 
     }
+    std::vector<int> numsOfEndDevicesExistTMP = {0, 0, 0, 0, 0, 0};
+    for (ApplicationContainer::Iterator aci = endDeviceApp.Begin (); aci != endDeviceApp.End (); ++aci)
+    {
+        Ptr<Application> app = *aci;
+        UintegerValue dataRateIndex = 0;
+        app->GetAttribute("DataRateIndex", dataRateIndex);
+        sfForDevicesSEMEN.push_back(dataRateIndex.Get());
+        numsOfEndDevicesExistTMP[dataRateIndex.Get()] += 1;
+
+//        const Ptr <Node> endDeviceNode = app->GetNode();
+//        Ptr <MobilityModel> endDeviceMobility = endDeviceNode->GetObject<MobilityModel>();
+//        Vector endDevicePos = endDeviceMobility->GetPosition();
+//        auto distance = std::sqrt(endDevicePos.x * endDevicePos.x + endDevicePos.y * endDevicePos.y);
+//        std::cout << "CalculateDataRateIndexPER: node " << endDeviceNode->GetId ()
+//                   << "\tpos=(" << endDevicePos.x << "," << endDevicePos.y << ")\td=" << distance << "\tSF=" << dataRateIndex.Get() << std::endl;
+
+    }
+    std::cout << "now: " << std::endl;
+    for (auto i : numsOfEndDevicesExistTMP) {
+        std::cout << i << " ";
+    }
+    std::cout  << std::endl;
+//    if (!flagForApp){
+//        flagForApp = true;
+//    }
 
 }
 
