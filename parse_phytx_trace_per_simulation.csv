@@ -1,0 +1,2 @@
+<nGateways>,<nEndDevices>,<totalTime>,<drCalcMethod>,<drCalcMethodMisc>,<seed>,<usDataPeriod>,<delivered>,<sent>,<PDR>,<deliveredDR0>,<sentDR0>,<PDRDR0>,<deliveredDR1>,<sentDR1>,<PDRDR1>,<deliveredDR2>,<sentDR2>,<PDRDR2>,<deliveredDR3>,<sentDR3>,<PDRDR3>,<deliveredDR4>,<sentDR4>,<PDRDR4>,<deliveredDR5>,<sentDR5>,<PDRDR5>
+1,3000,7500,0,0.01,51679,300,41806,76617,0.5456,0,0,0.0000,0,0,0.0000,0,0,0.0000,0,0,0.0000,0,0,0.0000,41806,76617,0.5456

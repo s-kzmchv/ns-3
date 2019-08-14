@@ -819,9 +819,9 @@ LoRaWANExampleTracing::InstallApplications ()
                 denominator += tmp;
             }
 //            std::cout << "SF" << 12 - numOfSF << " num: " << numsOfEndDevicesExist[numOfSF] << std::endl;
-            std::cout << "!!!!! " << numerator << " " << denominator << " " << N << std::endl;
+//            std::cout << "!!!!! " << numerator << " " << denominator << " " << N << std::endl;
             int optNumOfDeviceSF = round(numerator / denominator * N);
-            std::cout << "!!!!! " << optNumOfDeviceSF << " " << numsOfEndDevicesExist[numOfSF] << std::endl;
+//            std::cout << "!!!!! " << optNumOfDeviceSF << " " << numsOfEndDevicesExist[numOfSF] << std::endl;
             if (optNumOfDeviceSF > numsOfEndDevicesExist[numOfSF] && flag){
                 numsOfEndDevicesMustBe[numOfSF] = numsOfEndDevicesExist[numOfSF];
                 N -= numsOfEndDevicesExist[numOfSF];
@@ -842,15 +842,15 @@ LoRaWANExampleTracing::InstallApplications ()
             numofnustbe += i;
             std::cout << i << " ";
         }
-        std::cout <<numofnustbe << " &&&&&& " << N  << std::endl;
+//        std::cout <<numofnustbe << " &&&&&& " << m_nEndDevices  << std::endl;
 
-        if (numofnustbe > N){
-            numsOfEndDevicesMustBe[0] = numsOfEndDevicesMustBe[0] - (numofnustbe - N);
+        if (numofnustbe > m_nEndDevices){
+            numsOfEndDevicesMustBe[0] = numsOfEndDevicesMustBe[0] - (numofnustbe - m_nEndDevices);
         }
 
-        for (auto i : numsOfEndDevicesMustBe) {
-            std::cout << i << " ";
-        }
+//        for (auto i : numsOfEndDevicesMustBe) {
+//            std::cout << i << " ";
+//        }
 
         int i = 5;
         while (i != -1) {
