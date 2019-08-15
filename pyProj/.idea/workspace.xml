@@ -2,26 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b87d9334-9d38-4d36-bbde-f68b4cccbed8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../SF12PW11_100Runs_1500m_1000ED.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SF12PW14_100Runs_1500m_1000ED.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fix1000ED.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fix1500R.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fix3000ED.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fix3000R.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/endPlots.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../resultOfmodeling/1000ED_1000-3000R.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../resultOfmodeling/1000ED_1500R_1000Runs.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../resultOfmodeling/1000ED_1500R_100Runs.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../resultOfmodeling/1000ED_1500R_10Runs.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../resultOfmodeling/1000ED_1500R_25Runs_NoOPT.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../resultOfmodeling/1000ED_3000R_10Runs_NoOPT.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../resultOfmodeling/1000ED_3000R_300Runs.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../resultOfmodeling/3000ED_1500R_1000Runs.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../resultOfmodeling/3000ED_1500R_25Runs_NoOPT.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../resultOfmodeling/3000ED_1500R_500Runs.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../resultOfmodeling/3000ED_3000R_10Runs_NoOPT.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../resultOfmodeling/3000ED_3000R_500Runs.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../resultOfmodeling/relativeGainFor_1000ED_1000-3000R.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
@@ -29,53 +9,19 @@
       <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.lock-waf_linux2_build" beforeDir="false" afterPath="$PROJECT_DIR$/../.lock-waf_linux2_build" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../build/.lock-waf_linux2_build" beforeDir="false" afterPath="$PROJECT_DIR$/../build/.lock-waf_linux2_build" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/.old_srcdir" beforeDir="false" afterPath="$PROJECT_DIR$/../build/.old_srcdir" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/.wafpickle-linux2-34017520-98" beforeDir="false" afterPath="$PROJECT_DIR$/../build/.wafpickle-linux2-34017520-98" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/build-status.py" beforeDir="false" afterPath="$PROJECT_DIR$/../build/build-status.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../build/c4che/_cache.py" beforeDir="false" afterPath="$PROJECT_DIR$/../build/c4che/_cache.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../build/compile_commands.json" beforeDir="false" afterPath="$PROJECT_DIR$/../build/compile_commands.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../build/config.log" beforeDir="false" afterPath="$PROJECT_DIR$/../build/config.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/libns3-dev-lorawan-debug.so" beforeDir="false" afterPath="$PROJECT_DIR$/../build/libns3-dev-lorawan-debug.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/libns3-dev-netanim-debug.so" beforeDir="false" afterPath="$PROJECT_DIR$/../build/libns3-dev-netanim-debug.so" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../build/ns3/config-store-module.h" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ns3/config-store-module.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/scratch/adhoc-aloha-ideal-phy" beforeDir="false" afterPath="$PROJECT_DIR$/../build/scratch/adhoc-aloha-ideal-phy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/scratch/lorawan-example-tracing" beforeDir="false" afterPath="$PROJECT_DIR$/../build/scratch/lorawan-example-tracing" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/scratch/lorawan-example-tracing.cc.2.o" beforeDir="false" afterPath="$PROJECT_DIR$/../build/scratch/lorawan-example-tracing.cc.2.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/scratch/lorawan-example-tracing_OkH" beforeDir="false" afterPath="$PROJECT_DIR$/../build/scratch/lorawan-example-tracing_OkH" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/scratch/lorawan-example-tracing_const_f" beforeDir="false" afterPath="$PROJECT_DIR$/../build/scratch/lorawan-example-tracing_const_f" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/scratch/lorawan-example-tracing_fix_distance" beforeDir="false" afterPath="$PROJECT_DIR$/../build/scratch/lorawan-example-tracing_fix_distance" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/scratch/lorawan-example-tracing_fix_distance.cc.4.o" beforeDir="false" afterPath="$PROJECT_DIR$/../build/scratch/lorawan-example-tracing_fix_distance.cc.4.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/scratch/lorawan-example-tracing_fix_distance_one" beforeDir="false" afterPath="$PROJECT_DIR$/../build/scratch/lorawan-example-tracing_fix_distance_one" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/scratch/lorawan-example-tracing_read_from_file" beforeDir="false" afterPath="$PROJECT_DIR$/../build/scratch/lorawan-example-tracing_read_from_file" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/scratch/lorawan-phy-example" beforeDir="false" afterPath="$PROJECT_DIR$/../build/scratch/lorawan-phy-example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/scratch/scratch-simulator" beforeDir="false" afterPath="$PROJECT_DIR$/../build/scratch/scratch-simulator" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/scratch/subdir/subdir" beforeDir="false" afterPath="$PROJECT_DIR$/../build/scratch/subdir/subdir" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../build/src/config-store/libns3-dev-config-store-debug.pc" beforeDir="false" afterPath="$PROJECT_DIR$/../build/src/config-store/libns3-dev-config-store-debug.pc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/src/lorawan/model/lorawan-enddevice-application.cc.1.o" beforeDir="false" afterPath="$PROJECT_DIR$/../build/src/lorawan/model/lorawan-enddevice-application.cc.1.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/src/lorawan/model/lorawan-mac.cc.1.o" beforeDir="false" afterPath="$PROJECT_DIR$/../build/src/lorawan/model/lorawan-mac.cc.1.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/src/lorawan/model/lorawan-phy.cc.1.o" beforeDir="false" afterPath="$PROJECT_DIR$/../build/src/lorawan/model/lorawan-phy.cc.1.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/utils/ns3-dev-print-introspected-doxygen-debug" beforeDir="false" afterPath="$PROJECT_DIR$/../build/utils/ns3-dev-print-introspected-doxygen-debug" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/utils/ns3-dev-test-runner-debug" beforeDir="false" afterPath="$PROJECT_DIR$/../build/utils/ns3-dev-test-runner-debug" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lorawan-netamin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lorawan-netamin.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../parse_phytx_trace_per_enddevice.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../parse_phytx_trace_per_simulation.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/pyProj.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pyProj.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/plots.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/randomSF1000ED.py" beforeDir="false" afterPath="$PROJECT_DIR$/randomSF1000ED.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../resultOfmodeling/.~lock.table.csv#" beforeDir="false" afterPath="$PROJECT_DIR$/../resultOfmodeling/.~lock.table.csv#" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../resultOfmodeling/1000_1500_100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../resultOfmodeling/1000_1500_1000.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../resultOfmodeling/1000_1500_25_NoOPT.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../resultOfmodeling/1000_3000_10_NoOPT.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../resultOfmodeling/1000_3000_300.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../resultOfmodeling/3000_1500_1000.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../resultOfmodeling/3000_1500_25_NoOPT.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../resultOfmodeling/3000_1500_500.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../resultOfmodeling/3000_3000_10_NoOPT.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../resultOfmodeling/3000_3000_500.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../resultOfmodeling/table.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../resultOfmodeling/table.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../resultOfmodeling/Безымянный документ 1" beforeDir="false" afterPath="$PROJECT_DIR$/../resultOfmodeling/Безымянный документ 1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../scratch/lorawan-example-tracing.cc" beforeDir="false" afterPath="$PROJECT_DIR$/../scratch/lorawan-example-tracing.cc" afterDir="false" />
@@ -85,8 +31,6 @@
       <change beforePath="$PROJECT_DIR$/../src/lorawan/model/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../src/lorawan/model/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/lorawan/model/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../src/lorawan/model/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/lorawan/model/lorawan-enddevice-application.cc" beforeDir="false" afterPath="$PROJECT_DIR$/../src/lorawan/model/lorawan-enddevice-application.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/lorawan/model/lorawan-mac.cc" beforeDir="false" afterPath="$PROJECT_DIR$/../src/lorawan/model/lorawan-mac.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/lorawan/model/lorawan-phy.cc" beforeDir="false" afterPath="$PROJECT_DIR$/../src/lorawan/model/lorawan-phy.cc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/lte/doc/source/figures/MCS_12_test.eps" beforeDir="false" afterPath="$PROJECT_DIR$/../src/lte/doc/source/figures/MCS_12_test.eps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/lte/doc/source/figures/MCS_2_test.eps" beforeDir="false" afterPath="$PROJECT_DIR$/../src/lte/doc/source/figures/MCS_2_test.eps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/lte/model/fading-traces/fading_trace_ETU_3kmph.fad" beforeDir="false" afterPath="$PROJECT_DIR$/../src/lte/model/fading-traces/fading_trace_ETU_3kmph.fad" afterDir="false" />
@@ -103,6 +47,14 @@
       <change beforePath="$PROJECT_DIR$/../src/mobility/model/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../src/mobility/model/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/mobility/model/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../src/mobility/model/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/spectrum/doc/spectrum-tv-rand-geo-points.eps" beforeDir="false" afterPath="$PROJECT_DIR$/../src/spectrum/doc/spectrum-tv-rand-geo-points.eps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tmp/myTest-1565863733-0-nodes.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tmp/myTest-1565863733-0-sim-settings.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tmp/myTest-1565863733-0-trace-ed-msgs.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tmp/myTest-1565863733-0-trace-mac-packets.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tmp/myTest-1565863733-0-trace-mac-state.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tmp/myTest-1565863733-0-trace-ns-dsmsgs.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tmp/myTest-1565863733-0-trace-phy-state.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tmp/myTest-1565863733-0-trace-phy-tx.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../графикиOLD/1500_100_5000_withNEWOPT" beforeDir="false" afterPath="$PROJECT_DIR$/../графикиOLD/1500_100_5000_withNEWOPT" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../графикиOLD/1500_25_1000_withNEWOPT.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../графикиOLD/1500_25_1000_withNEWOPT.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../графикиOLD/1500_300_1000_withNEWOPT" beforeDir="false" afterPath="$PROJECT_DIR$/../графикиOLD/1500_300_1000_withNEWOPT" afterDir="false" />

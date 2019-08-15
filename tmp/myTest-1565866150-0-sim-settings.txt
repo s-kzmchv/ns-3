@@ -2,7 +2,7 @@ Simulation settings:
 	randomSeed = 100
 	nEndDevices = 3000
 	nGateways = 1
-	discRadius = 3000
+	discRadius = 1000
 	totalTime = 300
 	nRuns = 1
 	usPacketSize = 23
@@ -26,12 +26,12 @@ Simulation settings:
 	outputFileNamePrefix = tmp/myTest
 	run = 0
 	seed = 100
-	phyTransmissionTraceCSVFileName = tmp/myTest-1565863733-0-trace-phy-tx.csv
-	phyStateTraceCSVFileName = tmp/myTest-1565863733-0-trace-phy-state.csv
-	macPacketTraceCSVFileName = tmp/myTest-1565863733-0-trace-mac-packets.csv
-	macStateTraceCSVFileName = tmp/myTest-1565863733-0-trace-mac-state.csv
-	edMsgTraceCSVFileName = tmp/myTest-1565863733-0-trace-ed-msgs.csv
-	nsDSMsgTraceCSVFileName = tmp/myTest-1565863733-0-trace-ns-dsmsgs.csv
-	miscTraceCSVFileName = tmp/myTest-1565863733-0-trace-misc.csv
-	nodesCSVFileName = tmp/myTest-1565863733-0-nodes.csv
+	phyTransmissionTraceCSVFileName = tmp/myTest-1565866150-0-trace-phy-tx.csv
+	phyStateTraceCSVFileName = tmp/myTest-1565866150-0-trace-phy-state.csv
+	macPacketTraceCSVFileName = tmp/myTest-1565866150-0-trace-mac-packets.csv
+	macStateTraceCSVFileName = tmp/myTest-1565866150-0-trace-mac-state.csv
+	edMsgTraceCSVFileName = tmp/myTest-1565866150-0-trace-ed-msgs.csv
+	nsDSMsgTraceCSVFileName = tmp/myTest-1565866150-0-trace-ns-dsmsgs.csv
+	miscTraceCSVFileName = tmp/myTest-1565866150-0-trace-misc.csv
+	nodesCSVFileName = tmp/myTest-1565866150-0-nodes.csv
 	Data rate assignment method index: 0, PER limit = 0.01, PER Packet size = 21 bytes
