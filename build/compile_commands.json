@@ -760,8 +760,8 @@
     "file": "../src/lte/model/lte-rlc-am-header.cc"
   }, 
   {
-    "directory": "/dope/forStudy/ns-3/build", 
-    "command": "/usr/bin/g++ -O0 -ggdb -g3 -Wall '' -std=c++11 -Wno-error=deprecated-declarations -fstrict-aliasing -Wstrict-aliasing -fPIC -pthread -pthread -I. -I.. -I/usr/include/gtk-2.0 -I/usr/lib/x86_64-linux-gnu/gtk-2.0/include -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/pixman-1 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/harfbuzz -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/freetype2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GTK2=1 ../src/lorawan/model/lorawan-phy.cc -c -o /dope/forStudy/ns-3/build/src/lorawan/model/lorawan-phy.cc.1.o", 
+    "directory": "/home/developer/Project/build", 
+    "command": "/usr/bin/g++ -O0 -ggdb -g3 -Wall '' -std=c++11 -Wno-error=deprecated-declarations -fstrict-aliasing -Wstrict-aliasing -fPIC -pthread -I. -I.. -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 ../src/lorawan/model/lorawan-phy.cc -c -o /home/developer/Project/build/src/lorawan/model/lorawan-phy.cc.1.o", 
     "file": "../src/lorawan/model/lorawan-phy.cc"
   }, 
   {
@@ -1380,8 +1380,8 @@
     "file": "../src/wifi/model/aparf-wifi-manager.cc"
   }, 
   {
-    "directory": "/dope/forStudy/ns-3/build", 
-    "command": "/usr/bin/g++ -O0 -ggdb -g3 -Wall '' -std=c++11 -Wno-error=deprecated-declarations -fstrict-aliasing -Wstrict-aliasing -fPIC -pthread -pthread -I. -I.. -I/usr/include/gtk-2.0 -I/usr/lib/x86_64-linux-gnu/gtk-2.0/include -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/pixman-1 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/harfbuzz -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/freetype2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GTK2=1 ../src/lorawan/model/lorawan-mac.cc -c -o /dope/forStudy/ns-3/build/src/lorawan/model/lorawan-mac.cc.1.o", 
+    "directory": "/home/developer/Project/build", 
+    "command": "/usr/bin/g++ -O0 -ggdb -g3 -Wall '' -std=c++11 -Wno-error=deprecated-declarations -fstrict-aliasing -Wstrict-aliasing -fPIC -pthread -I. -I.. -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 ../src/lorawan/model/lorawan-mac.cc -c -o /home/developer/Project/build/src/lorawan/model/lorawan-mac.cc.1.o", 
     "file": "../src/lorawan/model/lorawan-mac.cc"
   }, 
   {
@@ -2465,8 +2465,8 @@
     "file": "../src/wimax/model/bs-link-manager.cc"
   }, 
   {
-    "directory": "/dope/forStudy/ns-3/build", 
-    "command": "/usr/bin/g++ -O0 -ggdb -g3 -Wall '' -std=c++11 -Wno-error=deprecated-declarations -fstrict-aliasing -Wstrict-aliasing -pthread -pthread -I. -I.. -I/usr/include/gtk-2.0 -I/usr/lib/x86_64-linux-gnu/gtk-2.0/include -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/pixman-1 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/harfbuzz -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/freetype2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GTK2=1 ../scratch/lorawan-example-tracing.cc -c -o /dope/forStudy/ns-3/build/scratch/lorawan-example-tracing.cc.5.o", 
+    "directory": "/home/developer/Project/build", 
+    "command": "/usr/bin/g++ -O0 -ggdb -g3 -Wall '' -std=c++11 -Wno-error=deprecated-declarations -fstrict-aliasing -Wstrict-aliasing -pthread -I. -I.. -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 ../scratch/lorawan-example-tracing.cc -c -o /home/developer/Project/build/scratch/lorawan-example-tracing.cc.2.o", 
     "file": "../scratch/lorawan-example-tracing.cc"
   }, 
   {

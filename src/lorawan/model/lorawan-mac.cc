@@ -931,6 +931,12 @@ LoRaWANMac::ConfigurePhyForTX () {
 
     uint8_t subBandIndex = LoRaWAN::m_supportedChannels[txQElement->lorawanDataRequestParams.m_loraWANChannelIndex].m_subBandIndex; // Sub band belonging to channel
     uint8_t maxTxPower = m_lorawanMacRDC->GetMaxPowerForSubBand (subBandIndex);
+
+    if (dataRateIndex == 0){
+//        std::cout << (int)maxTxPower << std::endl;
+//        maxTxPower = 11;
+    }
+
     if (!m_phy->SetTxConf (maxTxPower, channelIndex, dataRateIndex, codeRate, 8, false, true) ) {
       NS_LOG_ERROR (this << " unable to configure Phy");
       return false;

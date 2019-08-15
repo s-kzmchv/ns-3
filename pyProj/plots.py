@@ -39,11 +39,11 @@ import pandas as pd
 
 
 
-if (False):
+if (True):
 
     # Build plots fix Radius
 
-    fName = "/dope/forStudy/ns-3/resultOfmodeling/table.csv"
+    fName = "/home/developer/Project/resultOfmodeling/table.csv"
     file = pd.read_csv(fName, header = None)
 
 
@@ -89,17 +89,17 @@ if (False):
     plt.ylabel("PDR")
     plt.grid()
     plt.legend()
-    plt.savefig("resultOfmodeling/fix{}R.png".format(fixRadius))
+    # plt.savefig("resultOfmodeling/fix{}R.png".format(fixRadius))
     plt.show()
 
 else:
     # Build plots fix numOfDevices
 
-    fName = "/dope/forStudy/ns-3/resultOfmodeling/table.csv"
+    fName = "/home/developer/Project/resultOfmodeling/table.csv"
     file = pd.read_csv(fName, header = None)
 
 
-    fixNumOfDevices = 3000
+    fixNumOfDevices = 1000
     PDR = {}
     PDR_upper = {}
     PDR_lower = {}
@@ -141,5 +141,5 @@ else:
     plt.ylabel("PDR")
     plt.grid()
     plt.legend()
-    plt.savefig("resultOfmodeling/fix{}ED.png".format(fixNumOfDevices))
+    # plt.savefig("resultOfmodeling/fix{}ED.png".format(fixNumOfDevices))
     plt.show()

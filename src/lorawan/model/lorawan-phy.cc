@@ -285,6 +285,13 @@ LoRaWANPhy::SetTxConf (int8_t power, uint8_t channelIndex, uint8_t dataRateIndex
   NS_LOG_FUNCTION (this << (int16_t)power << (uint16_t)channelIndex << (uint16_t)dataRateIndex << (uint16_t)codeRate << (uint16_t)preambleLength << implicitHeader << crcOn);
 
   PrintCurrentTxConf();
+//  std::cout << "(" << (double)m_txPower << ", "
+//               << (uint16_t)m_currentChannelIndex << ", "
+//               << (uint16_t)m_currentDataRateIndex << ", "
+//               << (uint16_t)m_codeRate << ", "
+//               << (uint16_t)m_preambleLength << ", "
+//               << "0, "
+//               << m_crcOn << ")" << std::endl;
 
   const LoRaWANChannel* channel = &LoRaWAN::m_supportedChannels[channelIndex];
   const LoRaWANDataRate* dataRate = &LoRaWAN::m_supportedDataRates[dataRateIndex];
