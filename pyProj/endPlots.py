@@ -6,6 +6,22 @@ import matplotlib.pyplot as plt
 import datetime
 import csv
 
+def test(v):
+    tmp = {}
+    counter = {}
+    for j in v:
+        if j[0] not in tmp:
+            tmp[j[0]] = j[1]
+            counter[j[0]] = 1
+        else:
+            tmp[j[0]] += j[1]
+            counter[j[0]] += 1
+    res = []
+    for i in tmp.keys():
+        tmp[i] = tmp[i] / counter[i]
+        res.append([i, tmp[i]])
+    return res
+
 def do(nRunsInTime,discRadius,numED,nRunsInTime_withoutOPT ):
     now = datetime.datetime.now()
     print (now.strftime("%d-%m-%Y %H:%M"))
@@ -48,27 +64,27 @@ def do(nRunsInTime,discRadius,numED,nRunsInTime_withoutOPT ):
               " --outputFileNamePrefix=tmp/myTest\"".format(random,numED,nGateways,discRadius,
                                                                                totalTime,nRuns,OPT,usPacketSize,
                                                                                usDataPeriod))
-    os.system("python3 parse_phytx_trace.py tmp/*trace-phy-tx.csv")
+    # os.system("python3 parse_phytx_trace.py tmp/*trace-phy-tx.csv")
     # exit(0)
     print("\n ------------------------------------------------------------------------------------------------------- \n")
-    fName = "parse_phytx_trace_per_simulation.csv"
-    probabilityForSF = pd.read_csv(fName, header = None)
-    for j in range(nRuns):
-        for i in range(len(t_23ms)):
-            # print("probability for SF{} = {} ({}/{}) modeling".format(12 - i, probabilityForSF[10 + 2 + i*3][1],probabilityForSF[10 + + i*3][1],probabilityForSF[10 + + i*3 +1][1]))
-            # resOfModelingProbForSF.append(float(probabilityForSF[10 + 2 + i*3][1]))
-            resOfModelingProbForSF[i] += (float(probabilityForSF[10 + 2 + i * 3][j+1]))
-        PDR += float(probabilityForSF[9][j+1])
-        # print("!!!!!!!!!!!!!!!!!!" + probabilityForSF[9][j+1])
-    resOfModelingProbForSF[:] = [x / nRuns for x in resOfModelingProbForSF]
+    # fName = "parse_phytx_trace_per_simulation.csv"
+    # probabilityForSF = pd.read_csv(fName, header = None)
+    # for j in range(nRuns):
+    #     for i in range(len(t_23ms)):
+    #         # print("probability for SF{} = {} ({}/{}) modeling".format(12 - i, probabilityForSF[10 + 2 + i*3][1],probabilityForSF[10 + + i*3][1],probabilityForSF[10 + + i*3 +1][1]))
+    #         # resOfModelingProbForSF.append(float(probabilityForSF[10 + 2 + i*3][1]))
+    #         resOfModelingProbForSF[i] += (float(probabilityForSF[10 + 2 + i * 3][j+1]))
+    #     PDR += float(probabilityForSF[9][j+1])
+    #     # print("!!!!!!!!!!!!!!!!!!" + probabilityForSF[9][j+1])
+    # resOfModelingProbForSF[:] = [x / nRuns for x in resOfModelingProbForSF]
 
     print("\n ############################################################################################################## \n")
-    PDR = PDR/nRuns
-    print()
-    print("PDR = {} on discRadius {}m ".format(PDR, discRadius))
-    print()
-    print("res of modeling (prob): ")
-    print(resOfModelingProbForSF[::-1])
+    # PDR = PDR/nRuns
+    # print()
+    # print("PDR = {} on discRadius {}m ".format(PDR, discRadius))
+    # print()
+    # print("res of modeling (prob): ")
+    # print(resOfModelingProbForSF[::-1])
 
     print("\n !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! TEOR \n")
 
@@ -76,13 +92,13 @@ def do(nRunsInTime,discRadius,numED,nRunsInTime_withoutOPT ):
     _lambda = 1 / usDataPeriod
     numOfSF = [0, 0, 0, 0, 0, 0]
     tmpName = ""
-    for file in os.listdir("/home/developer/Project/tmp/"):
+    for file in os.listdir("/dope/forStudy/ns-3/tmp/"):
         if file.endswith("nodes.csv"):
             # print(file)
             tmpName = file
             break
 
-    fName = "/home/developer/Project/tmp/" + tmpName
+    fName = "/dope/forStudy/ns-3/tmp/" + tmpName
 
     tmp = pd.read_csv(fName, header = None)
     valueSF = tmp[5].values
@@ -168,28 +184,28 @@ def do(nRunsInTime,discRadius,numED,nRunsInTime_withoutOPT ):
               " --outputFileNamePrefix=tmp/myTest\"".format(random,numED,nGateways,discRadius,
                                                                                totalTime,nRuns_withoutOPT,OPT,usPacketSize,
                                                                                usDataPeriod))
-    os.system("python3 parse_phytx_trace.py tmp/*trace-phy-tx.csv")
+    # os.system("python3 parse_phytx_trace.py tmp/*trace-phy-tx.csv")
 
     print("\n ------------------------------------------------------------------------------------------------------- \n")
 
-    fName = "parse_phytx_trace_per_simulation.csv"
-    probabilityForSF = pd.read_csv(fName, header = None)
-    for j in range(nRuns_withoutOPT):
-        for i in range(len(t_23ms)):
-            # print("probability for SF{} = {} ({}/{}) modeling".format(12 - i, probabilityForSF[10 + 2 + i*3][1],probabilityForSF[10 + + i*3][1],probabilityForSF[10 + + i*3 +1][1]))
-            # resOfModelingProbForSF.append(float(probabilityForSF[10 + 2 + i*3][1]))
-            resOfModelingProbForSF_withoutOPT[i] += (float(probabilityForSF[10 + 2 + i * 3][j+1]))
-        PDR_withoutOPT+= float(probabilityForSF[9][j+1])
-        # print("!!!!!!!!!!!!!!!!!!" + probabilityForSF[9][j+1])
-    resOfModelingProbForSF_withoutOPT[:] = [x / nRuns_withoutOPT for x in resOfModelingProbForSF_withoutOPT]
+    # fName = "parse_phytx_trace_per_simulation.csv"
+    # probabilityForSF = pd.read_csv(fName, header = None)
+    # for j in range(nRuns_withoutOPT):
+    #     for i in range(len(t_23ms)):
+    #         # print("probability for SF{} = {} ({}/{}) modeling".format(12 - i, probabilityForSF[10 + 2 + i*3][1],probabilityForSF[10 + + i*3][1],probabilityForSF[10 + + i*3 +1][1]))
+    #         # resOfModelingProbForSF.append(float(probabilityForSF[10 + 2 + i*3][1]))
+    #         resOfModelingProbForSF_withoutOPT[i] += (float(probabilityForSF[10 + 2 + i * 3][j+1]))
+    #     PDR_withoutOPT+= float(probabilityForSF[9][j+1])
+    #     # print("!!!!!!!!!!!!!!!!!!" + probabilityForSF[9][j+1])
+    # resOfModelingProbForSF_withoutOPT[:] = [x / nRuns_withoutOPT for x in resOfModelingProbForSF_withoutOPT]
 
     print("\n ############################################################################################################## \n")
-    PDR_withoutOPT = PDR_withoutOPT/nRuns_withoutOPT
-    print()
-    print("PDR = {} on discRadius {}m ".format(PDR_withoutOPT, discRadius))
-    print()
-    print("res of modeling (prob): ")
-    print(resOfModelingProbForSF_withoutOPT[::-1])
+    # PDR_withoutOPT = PDR_withoutOPT/nRuns_withoutOPT
+    # print()
+    # print("PDR = {} on discRadius {}m ".format(PDR_withoutOPT, discRadius))
+    # print()
+    # print("res of modeling (prob): ")
+    # print(resOfModelingProbForSF_withoutOPT[::-1])
 
     print("\n !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! TEOR \n")
 
@@ -197,13 +213,13 @@ def do(nRunsInTime,discRadius,numED,nRunsInTime_withoutOPT ):
     _lambda = 1 / usDataPeriod
     numOfSF_withoutOPT = [0, 0, 0, 0, 0, 0]
     tmpName = ""
-    for file in os.listdir("/home/developer/Project/tmp/"):
+    for file in os.listdir("/dope/forStudy/ns-3/tmp/"):
         if file.endswith("nodes.csv"):
             # print(file)
             tmpName = file
             break
 
-    fName = "/home/developer/Project/tmp/" + tmpName
+    fName = "/dope/forStudy/ns-3/tmp/" + tmpName
 
     tmp = pd.read_csv(fName, header = None)
     valueSF = tmp[5].values
@@ -268,74 +284,122 @@ def do(nRunsInTime,discRadius,numED,nRunsInTime_withoutOPT ):
     # with open(path, 'a') as f:
     #     writer = csv.writer(f)
     #     writer.writerow(fieldnames)
-
-    return PDRTeorLOW, PDRTeorLOW_withoutOPT
+    exit(0)
+    return PDRTeorUP, PDRTeorUP_withoutOPT
 
 if __name__ == "__main__":
 
-    ED = 3000
-    PDR_teor_opt =[]
-    PDR_teor_noOpt =[]
+    do(1, 3000, 200, 1)
+
+    PDR_teor_opt_1000 =[]
+    PDR_teor_noOpt_1000 =[]
+    PDR_teor_opt_3000 =[]
+    PDR_teor_noOpt_3000 =[]
     x = [1000,1500,2000,2500,3000]
     # x = [1000,1500]
 
     for i in x:
-        tmp1, tmp2 = do(1,i,ED,1)
-        PDR_teor_opt.append(tmp1)
-        PDR_teor_noOpt.append(tmp2)
+        tmp1, tmp2 = do(1,i,1000,1)
+        PDR_teor_opt_1000.append(tmp1)
+        PDR_teor_noOpt_1000.append(tmp2)
+        tmp1, tmp2 = do(1,i,3000,1)
+        PDR_teor_opt_3000.append(tmp1)
+        PDR_teor_noOpt_3000.append(tmp2)
 
-    fName = "/home/developer/Project/resultOfmodeling/table.csv"
+    fName = "/dope/forStudy/ns-3/resultOfmodeling/table2.csv"
     file = pd.read_csv(fName, header=None)
 
-    modeledPointsWithOPT = []
-    modeledPointsWithoutOPT = []
+    modeledPointsWithOPT_1000 = []
+    modeledPointsWithoutOPT_1000 = []
+    modeledPointsWithOPT_3000 = []
+    modeledPointsWithoutOPT_3000 = []
     for i in range(len(file[0])-1):
-        if int(file[0][i+1]) == ED:
-            modeledPointsWithOPT.append([int(file[1][i+1]),float(file[8][i + 1].replace(',','.'))])
-            modeledPointsWithoutOPT.append([int(file[1][i+1]),float(file[4][i + 1].replace(',','.'))])
+        if int(file[0][i+1]) == 1000:
+            modeledPointsWithOPT_1000.append([int(file[1][i+1]),float(file[8][i + 1].replace(',','.'))])
+            modeledPointsWithoutOPT_1000.append([int(file[1][i+1]),float(file[4][i + 1].replace(',','.'))])
+        if int(file[0][i+1]) == 3000:
+            modeledPointsWithOPT_3000.append([int(file[1][i+1]),float(file[8][i + 1].replace(',','.'))])
+            modeledPointsWithoutOPT_3000.append([int(file[1][i+1]),float(file[4][i + 1].replace(',','.'))])
+
+    modeledPointsWithOPT_1000 = test(modeledPointsWithOPT_1000)
+    modeledPointsWithoutOPT_1000 = test(modeledPointsWithoutOPT_1000)
+    modeledPointsWithOPT_3000 = test(modeledPointsWithOPT_3000)
+    modeledPointsWithoutOPT_3000 = test(modeledPointsWithoutOPT_3000)
+
+
 
     print("1 plot")
     print("R: " + str(x).replace(',','').replace('.',','))
-    print("PDR_teor_opt: " + str(PDR_teor_opt).replace(',','').replace('.',','))
-    print("PDR_teor_noOpt: " + str(PDR_teor_noOpt).replace(',','').replace('.',','))
-    print("modeledPoints with Opt: " + str(modeledPointsWithOPT))
-    print("modeledPoints without Opt: " + str(modeledPointsWithoutOPT))
+    print("PDR_teor_opt 1000: " + str(PDR_teor_opt_1000).replace(',','').replace('.',','))
+    print("PDR_teor_noOpt 1000: " + str(PDR_teor_noOpt_1000).replace(',','').replace('.',','))
+    print("PDR_teor_opt 3000: " + str(PDR_teor_opt_3000).replace(',','').replace('.',','))
+    print("PDR_teor_noOpt 3000: " + str(PDR_teor_noOpt_3000).replace(',','').replace('.',','))
+    print("modeledPoints with Opt 1000: " + str(modeledPointsWithOPT_1000))
+    print("modeledPoints without Opt 1000: " + str(modeledPointsWithoutOPT_1000))
+    print("modeledPoints with Opt 3000: " + str(modeledPointsWithOPT_3000))
+    print("modeledPoints without Opt 3000: " + str(modeledPointsWithoutOPT_3000))
 
 
-    plt.plot(x, PDR_teor_opt,  color="r", linestyle="dashed", label = "with optimization")
-    plt.plot(x, PDR_teor_noOpt,  color="b", linestyle="dashed", label = "without optimization")
-    plt.plot(*zip(*modeledPointsWithOPT), marker='o', color='black', ls='', label = "points of modeling with optimization")
-    plt.plot(*zip(*modeledPointsWithoutOPT), marker='o', color='green', ls='', label = "points of modeling without optimization")
-
+    plt.plot(x, PDR_teor_opt_1000,  color="r", linestyle="dashed", label = "Theoretical calculation with optimization for 1000 ED")
+    plt.plot(x, PDR_teor_noOpt_1000,  color="b", linestyle="dashed", label = "Theoretical calculation without optimization for 1000 ED")
+    plt.plot(x, PDR_teor_opt_3000,  color="r", linestyle="dashed", label = "Theoretical calculation with optimization for 3000 ED")
+    plt.plot(x, PDR_teor_noOpt_3000,  color="b", linestyle="dashed", label = "Theoretical calculation without optimization for 3000 ED")
+    plt.plot(*zip(*modeledPointsWithOPT_1000), marker='o', color='black', ls='', label = "Simulation with optimization for 1000 ED")
+    plt.plot(*zip(*modeledPointsWithoutOPT_1000), marker='o', color='green', ls='', label = "Simulation without optimization for 1000 ED")
+    plt.plot(*zip(*modeledPointsWithOPT_3000), marker='o', color='black', ls='', label = "Simulation with optimization for 3000 ED")
+    plt.plot(*zip(*modeledPointsWithoutOPT_3000), marker='o', color='green', ls='', label = "Simulation without optimization for 3000 ED")
+    plt.plot(1000,0,color='white')
     plt.xlabel("R")
     plt.ylabel("PDR")
     plt.grid()
     plt.legend()
-    plt.savefig("resultOfmodeling/{}ED_1000-3000R.png".format(ED))
+    plt.savefig("resultOfmodeling/UP1000and3000ED_1000-3000R.png")
     plt.show()
 
-    relative_gain = []
-    for i in range(len(PDR_teor_opt)):
-        relative_gain.append((PDR_teor_opt[i] - PDR_teor_noOpt[i])/PDR_teor_noOpt[i])
+    relative_gain_1000 = []
+    relative_gain_3000 = []
+    for i in range(len(PDR_teor_opt_1000)):
+        relative_gain_1000.append((PDR_teor_opt_1000[i] - PDR_teor_noOpt_1000[i])/PDR_teor_noOpt_1000[i])
+        relative_gain_3000.append((PDR_teor_opt_3000[i] - PDR_teor_noOpt_3000[i])/PDR_teor_noOpt_3000[i])
 
-    modeledPoints2 = []
+    modeledPoints2_1000 = []
+    modeledPoints2_3000 = []
     for i in range(len(file[0]) - 1):
-        if int(file[0][i + 1]) == ED:
-            modeledPoints2.append([int(file[1][i + 1]), float(file[8][i + 1].replace(',','.'))])
+        if int(file[0][i + 1]) == 1000:
+            modeledPoints2_1000.append([int(file[1][i + 1]), float(file[12][i + 1].replace(',','.'))])
+        if int(file[0][i + 1]) == 3000:
+            modeledPoints2_3000.append([int(file[1][i + 1]), float(file[12][i + 1].replace(',', '.'))])
 
+    modeledPoints2_1000 = test(modeledPoints2_1000)
+    modeledPoints2_3000 = test(modeledPoints2_3000)
     print("2 plot")
-    print("relative_gain: " + str(relative_gain).replace(',','').replace('.',','))
-    print("modeledPoints relative gain: " + str(modeledPoints2))
+    print("relative_gain_1000: " + str(relative_gain_1000).replace(',','').replace('.',','))
+    print("modeledPoints relative gain: " + str(modeledPoints2_1000))
 
-    plt.plot(x, relative_gain, color="green", linestyle="dashed", label="relative gain teor")
-    plt.plot(*zip(*modeledPoints2), marker='o', color='black', ls='', label = "relative gain of modeling")
+    plt.plot(x, relative_gain_1000, color="red", linestyle="dashed", label="Relative gain for theoretical calculation for 1000 ED")
+    plt.plot(*zip(*modeledPoints2_1000), marker='o', color='blue', ls='', label = "Relative gain for simulation for 1000 ED")
+
+    # plt.xlabel("R")
+    # plt.ylabel("relative gain PDR")
+    # plt.grid()
+    # plt.legend()
+    # plt.savefig("resultOfmodeling/UPrelativeGainFor_{}ED_1000-3000R.png".format(1000))
+    #
+    # plt.show()
+
+    # print("3 plot")
+    print("relative_gain_3000: " + str(relative_gain_3000).replace(',','').replace('.',','))
+    print("modeledPoints relative gain 3000: " + str(modeledPoints2_3000))
+
+    plt.plot(x, relative_gain_3000, color="green", linestyle="dashed", label="Relative gain for theoretical calculation for 3000 ED")
+    plt.plot(*zip(*modeledPoints2_3000), marker='o', color='black', ls='', label = "Relative gain for simulation for 3000 ED")
 
 
     plt.xlabel("R")
     plt.ylabel("relative gain PDR")
     plt.grid()
-    plt.legend()
-    plt.savefig("resultOfmodeling/relativeGainFor_{}ED_1000-3000R.png".format(ED))
+    plt.legend(loc='lower center', bbox_to_anchor =(0.5,1.05))
+    plt.savefig("resultOfmodeling/UPrelativeGainFor_{}ED_1000-3000R.png".format(3000))
 
     plt.show()
 

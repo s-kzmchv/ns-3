@@ -911,7 +911,6 @@ LoRaWANExampleTracing::InstallApplications ()
 //    if (!flagForApp){
 //        flagForApp = true;
 //    }
-
 }
 
 

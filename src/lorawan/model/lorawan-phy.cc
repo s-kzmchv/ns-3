@@ -518,7 +518,9 @@ LoRaWANPhy::SetSetTRXStateConfirmCallback (SetTRXStateConfirmCallback c)
 void
 LoRaWANPhy::StartRx (Ptr<SpectrumSignalParameters> spectrumRxParams)
 {
-  NS_LOG_FUNCTION (this << spectrumRxParams);
+    exit(0);
+
+    NS_LOG_FUNCTION (this << spectrumRxParams);
 
   LoRaWANSpectrumValueHelper psdHelper;
 

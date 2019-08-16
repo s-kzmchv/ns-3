@@ -20,8 +20,8 @@ def do(nRunsInTime,discRadius,numED,nRunsInTime_withoutOPT ):
     usDataPeriod = 300 #Период между последующими передачами данных восходящего потока с конечного устройства
     x = ["7","8","9","10","11","12"]
     t_23ms = [1.48275, 0.8233, 0.37069, 0.20582, 0.11315, 0.0617]
-    # random = np.random.randint(99999)
-    random = 100
+    random = np.random.randint(99999)
+    # random = 200
     # numED = 3000 #Количество конечных устройств
 
     # Моделирование с оптимизацией
@@ -76,13 +76,13 @@ def do(nRunsInTime,discRadius,numED,nRunsInTime_withoutOPT ):
     _lambda = 1 / usDataPeriod
     numOfSF = [0, 0, 0, 0, 0, 0]
     tmpName = ""
-    for file in os.listdir("/home/developer/Project/tmp/"):
+    for file in os.listdir("/dope/forStudy/ns-3/tmp/"):
         if file.endswith("nodes.csv"):
             # print(file)
             tmpName = file
             break
 
-    fName = "/home/developer/Project/tmp/" + tmpName
+    fName = "/dope/forStudy/ns-3/tmp/" + tmpName
 
     tmp = pd.read_csv(fName, header = None)
     valueSF = tmp[5].values
@@ -130,13 +130,13 @@ def do(nRunsInTime,discRadius,numED,nRunsInTime_withoutOPT ):
     plt.ylabel("Вероятность доставки")
     plt.grid()
     plt.legend()
-    plt.savefig("resultOfmodeling/{}ED_{}R_{}Runs_14dBm.png".format(numED,discRadius,nRunsInTime))
+    plt.savefig("resultOfmodeling/{}ED_{}R_{}Runs_11dBm.png".format(numED,discRadius,nRunsInTime))
     plt.show()
 
 
     now = datetime.datetime.now()
     print (now.strftime("%d-%m-%Y %H:%M"))
-    exit(0)
+    # exit(0)
 
 
 
@@ -197,13 +197,13 @@ def do(nRunsInTime,discRadius,numED,nRunsInTime_withoutOPT ):
     _lambda = 1 / usDataPeriod
     numOfSF_withoutOPT = [0, 0, 0, 0, 0, 0]
     tmpName = ""
-    for file in os.listdir("/home/developer/Project/tmp/"):
+    for file in os.listdir("/dope/forStudy/ns-3/tmp/"):
         if file.endswith("nodes.csv"):
             # print(file)
             tmpName = file
             break
 
-    fName = "/home/developer/Project/tmp/" + tmpName
+    fName = "/dope/forStudy/ns-3/tmp/" + tmpName
 
     tmp = pd.read_csv(fName, header = None)
     valueSF = tmp[5].values
@@ -270,7 +270,10 @@ def do(nRunsInTime,discRadius,numED,nRunsInTime_withoutOPT ):
         writer.writerow(fieldnames)
 
 if __name__ == "__main__":
-    do(100,1500,1000,10)
-    # do(1000,1500,3000,25)
-    # do(1,3000,1000,1)
-    # do(1,3000,3000,1)
+    do(100,1000,1000,10)
+    do(100,2000,1000,10)
+    do(100,2500,1000,10)
+
+    do(25, 1000, 3000, 10)
+    do(25, 2000, 3000, 10)
+    do(25, 2500, 3000, 10)
